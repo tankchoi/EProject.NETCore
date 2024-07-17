@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EProjet.NETCore.props" />
+</Project>

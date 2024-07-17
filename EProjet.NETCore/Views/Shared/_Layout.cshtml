@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JamesThew</title>
+    <link rel="stylesheet" href="~/css/navbar.css" />
+    <link rel="stylesheet" href="~/css/footer.css" />
+    @RenderSection("Styles", required: false)
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="nav-bar">
+            <a href="" class="logo">James Thew</a>
+            <div class="navigation">
+                <div class="nav-items">
+                    <i class="fa-solid fa-xmark nav-close-btn"></i>
+                    <a href="#" class="item-home"><i class="fa-solid fa-house"></i> Home</a>
+                    <a href="#" class="item-recipes"><i class="fa-solid fa-utensils"></i> Recipes</a>
+                    <a href="#" class="item-tips"><i class="fa-solid fa-wand-magic-sparkles"></i> Tips</a>
+                    <a href="#" class="item-contest"><i class="fa-solid fa-trophy"></i> Contest</a>
+                    <div class="nav-clc">
+                        <a href="#" class="item-announcements"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-solid fa-chevron-down drop"></i></a>
+                        <div class="nav-menu">
+                            <a href="#" class="item-feedback"><i class="fa-regular fa-comment"></i> Feedback</a>
+                            <a href="#" class="item-faq"><i class="fa-regular fa-circle-question"></i> FAQs</a>
+                        </div>
+                    </div>
+                    <a href="#" class="item-login"> Login</a>
+                </div>
+            </div>
+            <i class="fa-solid fa-bars nav-menu-btn"></i>
+        </div>
+        <div class="scroll-indicator-container">
+            <div class="scroll-indicator-bar"></div>
+        </div>
+    </header>
+
+     @RenderBody()
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="footer_main">
+            <div class="ft_link">
+                <a href="https://www.facebook.com/gordonramsay"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/gordonramsay"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://instagram.com/gordongram/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://twitter.com/gordonramsay"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <div class="ft_name">
+                <p>James Thew Restaurants</p>
+            </div>
+        </div>
+    </section>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
