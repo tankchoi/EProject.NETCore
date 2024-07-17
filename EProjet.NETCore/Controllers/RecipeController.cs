@@ -14,7 +14,40 @@ namespace EProjet.NETCore.Controllers
         [HttpGet]
         public IActionResult UploadRecipe()
         {
+            string guid = Guid.NewGuid().ToString();
+            ViewData["Guid"] = guid;
             return View("upload_recipe");
+        }
+        [HttpPost]
+        public async Task<JsonResult> UploadFile(IFormFile uploadedFiles, string guid)
+        {
+            string returnImagePath = string.Empty;
+            string fileName;
+            string extension;
+            string imageName;
+            string imageSavePath;
+
+            if (uploadedFiles != null && uploadedFiles.Length > 0)
+            {
+                // Tạo thư mục tạm theo GUID
+                string tempFolderName = guid;
+                string imageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/postedImage", tempFolderName);
+                Directory.CreateDirectory(imageDirectory);
+
+                fileName = Path.GetFileNameWithoutExtension(uploadedFiles.FileName);
+                extension = Path.GetExtension(uploadedFiles.FileName);
+                imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
+                imageSavePath = Path.Combine(imageDirectory, imageName + extension);
+
+                using (var stream = new FileStream(imageSavePath, FileMode.Create))
+                {
+                    await uploadedFiles.CopyToAsync(stream);
+                }
+
+                returnImagePath = "/postedImage/" + tempFolderName + "/" + imageName + extension;
+            }
+
+            return Json(new { path = returnImagePath });
         }
         public List<string> ExtractImageUrlsFromHtml(string htmlContent)
         {
@@ -34,18 +67,82 @@ namespace EProjet.NETCore.Controllers
             return imageUrls;
         }
         [HttpPost]
-        public IActionResult UploadRecipe(Recipe recipe, string guid)
+        public IActionResult DeleteTempImages([FromBody] DeleteImagesRequest request)
         {
+            try
+            {
+                string guid = request.Guid;
+                string imageDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "postedImage", guid);
+
+                if (Directory.Exists(imageDirectoryPath))
+                {
+                    Directory.Delete(imageDirectoryPath, true);
+                    return Ok(new { message = "Images deleted successfully." });
+                }
+                else
+                {
+                    return NotFound(new { message = "Image directory not found." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = $"Error deleting images: {ex.Message}" });
+            }
+        }
+
+        public class DeleteImagesRequest
+        {
+            public string Guid { get; set; }
+        }
+        [HttpPost]
+        public async Task<IActionResult> UploadRecipe(Recipe recipe, string guid, IFormFile recipeImg)
+        {
+            // Kiểm tra tính hợp lệ của các trường
+            
+
+            if (recipeImg == null)
+            {
+                ModelState.AddModelError("recipeImg", "Vui lòng tải lên một hình ảnh.");
+            }
+            if(recipe.Content == "<p><br></p>")
+            {
+                ModelState.AddModelError("content", "Vui lòng không để trống nội dung.");
+            }
+
+            // Nếu có lỗi trong ModelState, trả về trang hiện tại với các lỗi
+            if (!ModelState.IsValid)
+            {
+                return View("upload_recipe");
+            }
             using (var db = new EProjectNetcoreContext())
             {
                 recipe.Type = 0;
                 recipe.CreatedDate = DateTime.Now;
+                recipe.Img = "1";
                 db.Recipes.Add(recipe);
                 db.SaveChanges();
+                // Tạo thư mục chứa ảnh recipe
                 string newFolderName = recipe.Id.ToString();
                 string imageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/postedImage", newFolderName);
                 Directory.CreateDirectory(imageDirectory);
-
+                // Tải ảnh bìa của recipe lên server và lưu đường dẫn vào csdl
+                string fileName;
+                string extension;
+                string recipeImgName;
+                string imageSavePath;
+                fileName = Path.GetFileNameWithoutExtension(recipeImg.FileName);
+                extension = Path.GetExtension(recipeImg.FileName);
+                recipeImgName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
+             
+                imageSavePath = Path.Combine(imageDirectory, recipeImgName + extension);
+                recipe.Img = "/postedImage/" + recipe.Id.ToString() + "/" + recipeImgName + extension;
+                
+                using (var stream = new FileStream(imageSavePath, FileMode.Create))
+                {
+                    await recipeImg.CopyToAsync(stream);
+                }
+         
+          
                 // Trích xuất đường dẫn ảnh từ nội dung bài đăng
                 List<string> imageUrls = ExtractImageUrlsFromHtml(recipe.Content);
 
@@ -87,4 +184,4 @@ namespace EProjet.NETCore.Controllers
         }
     }
 }
-}
+
