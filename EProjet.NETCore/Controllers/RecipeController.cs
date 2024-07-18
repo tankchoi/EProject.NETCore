@@ -97,14 +97,13 @@ namespace EProjet.NETCore.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadRecipe(Recipe recipe, string guid, IFormFile recipeImg)
         {
-            // Kiểm tra tính hợp lệ của các trường
-            
 
+            ModelState.Clear();
             if (recipeImg == null)
             {
                 ModelState.AddModelError("recipeImg", "Vui lòng tải lên một hình ảnh.");
             }
-            if(recipe.Content == "<p><br></p>")
+            if (recipe.Content == "<p><br></p>")
             {
                 ModelState.AddModelError("content", "Vui lòng không để trống nội dung.");
             }
@@ -112,6 +111,12 @@ namespace EProjet.NETCore.Controllers
             // Nếu có lỗi trong ModelState, trả về trang hiện tại với các lỗi
             if (!ModelState.IsValid)
             {
+                ViewData["Guid"] = guid;
+                ViewData["Fullname"] = recipe.Fullname;
+                ViewData["Email"] = recipe.Email;
+                ViewData["Title"] = recipe.Title;
+                ViewData["Content"] = recipe.Content;
+
                 return View("upload_recipe");
             }
             using (var db = new EProjectNetcoreContext())
