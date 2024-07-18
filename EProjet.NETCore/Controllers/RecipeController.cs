@@ -98,7 +98,8 @@ namespace EProjet.NETCore.Controllers
         public async Task<IActionResult> UploadRecipe(Recipe recipe, string guid, IFormFile recipeImg)
         {
 
-            ModelState.Clear();
+            ModelState.Remove("recipeImg");
+            ModelState.Remove("Img");
             if (recipeImg == null)
             {
                 ModelState.AddModelError("recipeImg", "Vui lòng tải lên một hình ảnh.");
