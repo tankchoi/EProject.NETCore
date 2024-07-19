@@ -1,0 +1,76 @@
+﻿@using X.PagedList.Mvc.Core
+@using X.PagedList
+@model X.PagedList.IPagedList<EProjet.NETCore.Models.Competition>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/contest.css" />
+}
+
+<section class="contest">
+    <div class="contest_main">
+        <div class="contest_name">
+            <h1>Competition</h1>
+        </div>
+        <div class="contest_tool" style="display: none">
+            <!-- Admin add -->
+            <div class="tool_add">
+                <a href="#">Add Competition</a>
+            </div>
+        </div>
+        <div class="contest_list">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var contest in Model)
+                {
+                    <!-- Item -->
+                    <div class="list_ct">
+                        <div class="ct_left">
+                            <div class="left_name">
+                                <p>@contest.Title</p>
+                            </div>
+                            <div class="left_time">
+                                <p>Time: <span class="contest-time">@contest.StartDate.ToString("dd/MM/yyyy") - @contest.EndDate.ToString("dd/MM/yyyy")</span></p>
+                            </div>
+                        </div>
+                        <div class="ct_right">
+                            <!-- Auto -->
+                            <div class="right_btt">
+                                <!-- Still Valid -->
+                                <div class="btt_still">
+                                    <span class="time_remaining" id="time_remaining"></span>
+                                    <a href="#" class="btt_view right_btn">Details</a>
+                                    <a href="#" class="btt_join right_btn">Join now</a>
+                                </div>
+                                <!-- Expired -->
+                                <div class="btt_expired" style="display: none;">
+                                    <button class="btt_none">Expired</button>
+                                </div>
+                                <!-- Admin -->
+                                <div class="btt_admin" style="display: none;">
+                                    <a href="#"><button class="btt_detail">Details</button></a>
+                                    <button class="btt_delete">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No competitions found.</p>
+            }
+            <!-- End List Item -->
+        </div>
+        @Html.PagedListPager(Model, page => Url.Action("Competition", new { page, pageSize = 5 }),
+                 new PagedListRenderOptions
+        {
+            UlElementClasses = new[] { "pagination" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" },
+        })
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/contest.js"></script>
+}
