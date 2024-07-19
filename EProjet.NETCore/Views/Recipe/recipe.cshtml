@@ -33,7 +33,7 @@
                 @foreach (var recipe in Model)
                 {
                     <div class="item_recipe">
-                        <a href="" class="link_recipe">
+                        <a href="@Url.Action("RecipeDetail", "Recipe", new { id = @recipe.Id })" class="link_recipe">
                             <div class="menu_card">
                                 <div class="menu_image">
                                     <img src="@recipe.Img">
