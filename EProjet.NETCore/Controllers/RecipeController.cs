@@ -106,7 +106,7 @@ namespace EProjet.NETCore.Controllers
             {
                 // Tạo thư mục tạm theo GUID
                 string tempFolderName = guid;
-                string imageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/postedImage", tempFolderName);
+                string imageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/postedImage/recipe", tempFolderName);
                 Directory.CreateDirectory(imageDirectory);
 
                 fileName = Path.GetFileNameWithoutExtension(uploadedFiles.FileName);
@@ -119,7 +119,7 @@ namespace EProjet.NETCore.Controllers
                     await uploadedFiles.CopyToAsync(stream);
                 }
 
-                returnImagePath = "/postedImage/" + tempFolderName + "/" + imageName + extension;
+                returnImagePath = "/postedImage/recipe/" + tempFolderName + "/" + imageName + extension;
             }
 
             return Json(new { path = returnImagePath });
@@ -147,7 +147,7 @@ namespace EProjet.NETCore.Controllers
             try
             {
                 string guid = request.Guid;
-                string imageDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "postedImage", guid);
+                string imageDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "postedImage","recipe", guid);
 
                 if (Directory.Exists(imageDirectoryPath))
                 {
@@ -204,7 +204,7 @@ namespace EProjet.NETCore.Controllers
                 db.SaveChanges();
                 // Tạo thư mục chứa ảnh recipe
                 string newFolderName = recipe.Id.ToString();
-                string imageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/postedImage", newFolderName);
+                string imageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/postedImage/recipe", newFolderName);
                 Directory.CreateDirectory(imageDirectory);
                 // Tải ảnh bìa của recipe lên server và lưu đường dẫn vào csdl
                 string fileName;
@@ -216,7 +216,7 @@ namespace EProjet.NETCore.Controllers
                 recipeImgName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
              
                 imageSavePath = Path.Combine(imageDirectory, recipeImgName + extension);
-                recipe.Img = "/postedImage/" + recipe.Id.ToString() + "/" + recipeImgName + extension;
+                recipe.Img = "/postedImage/recipe/" + recipe.Id.ToString() + "/" + recipeImgName + extension;
                 
                 using (var stream = new FileStream(imageSavePath, FileMode.Create))
                 {
@@ -228,7 +228,7 @@ namespace EProjet.NETCore.Controllers
                 List<string> imageUrls = ExtractImageUrlsFromHtml(recipe.Content);
 
                 // Di chuyển ảnh từ thư mục tạm sang thư mục mới
-                string tempImageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/postedImage", guid);
+                string tempImageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/postedImage/recipe", guid);
                 if (Directory.Exists(tempImageDirectory))
                 {
                     string[] tempImages = Directory.GetFiles(tempImageDirectory);
@@ -244,7 +244,7 @@ namespace EProjet.NETCore.Controllers
                             System.IO.File.Move(tempImage, newImagePath);
 
                             // Cập nhật đường dẫn trong nội dung bài đăng
-                            recipe.Content = recipe.Content.Replace($"/postedImage/{guid}/{imageName}", $"/postedImage/{newFolderName}/{imageName}");
+                            recipe.Content = recipe.Content.Replace($"/postedImage/recipe/{guid}/{imageName}", $"/postedImage/recipe/{newFolderName}/{imageName}");
                         }
                         else
                         {
@@ -262,6 +262,25 @@ namespace EProjet.NETCore.Controllers
             }
 
             return RedirectToAction("Recipe");
+        }
+        [HttpGet]
+        public async Task<IActionResult> RecipeDetail(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            using (var db = new EProjectNetcoreContext())
+            {
+                var recipe = await db.Recipes.FirstOrDefaultAsync(m => m.Id == id);
+                if (recipe == null)
+                {
+                    return NotFound();
+                }
+
+                return View("recipe_detail",recipe);
+            }
         }
     }
 }
