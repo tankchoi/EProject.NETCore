@@ -3,8 +3,25 @@
 *@
 @{
 }
+@section Styles {
+    <link rel="stylesheet" href="~/css/recipe_detail.css" />
+}
 @model EProjet.NETCore.Models.Recipe
-<h1>@Model.Title</h1>
-<div>
-     @Html.Raw(@Model.Content)
-</div>
+
+<section class="detail">
+    <div class="detail_main">
+        <div class="title">
+            <h1>@Model.Title</h1>
+        </div>
+        <div class="image">
+            <img src="@Model.Img" alt="">
+        </div>
+        <div class="create_date">
+            <p>Created on: @Model.CreatedDate</p>
+        </div>
+        <div class="content">
+            @Html.Raw(@Model.Content)
+        </div>
+    </div>
+</section>
+
