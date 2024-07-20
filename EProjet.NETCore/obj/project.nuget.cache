@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pxOkZ3o+N/mMlVbTANFT6Mbj8RT+gMU2VUz7fVPLXA/0KqzXLe+w1LXiQS6sH4nHGLQCi2dRWe/7IqOpFjbPHA==",
+  "dgSpecHash": "1fb/QFxSvXmFONmjy8MHOXDMKP5LR8q6ToRYWSbBxjl1Ae4AE0htFSu6dsCZ+bQfz17YeGMQz8mh2/1zOi9Ciw==",
   "success": true,
-  "projectFilePath": "E:\\ASP\\.NET EPJ\\New folder\\EProject.NETCore\\EProjet.NETCore\\EProjet.NETCore.csproj",
+  "projectFilePath": "E:\\ASP\\.NET EPJ\\SourceCode\\EProjet.NETCore\\EProjet.NETCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -79,7 +79,9 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.text.json\\8.0.4\\system.text.json.8.0.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\x.pagedlist\\10.0.3\\x.pagedlist.10.0.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\x.pagedlist.mvc.core\\10.0.3\\x.pagedlist.mvc.core.10.0.3.nupkg.sha512"
   ],
   "logs": []
 }

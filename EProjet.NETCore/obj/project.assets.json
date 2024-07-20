@@ -1502,6 +1502,30 @@
             "rid": "win"
           }
         }
+      },
+      "X.PagedList/10.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/X.PagedList.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/X.PagedList.dll": {}
+        }
+      },
+      "X.PagedList.Mvc.Core/10.0.3": {
+        "type": "package",
+        "dependencies": {
+          "X.PagedList": "10.0.3"
+        },
+        "compile": {
+          "lib/net8.0/X.PagedList.Mvc.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/X.PagedList.Mvc.Core.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -4096,13 +4120,47 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "X.PagedList/10.0.3": {
+      "sha512": "HIYIXYlqIWrhedP1ext7bG1Bj3LS8X7zgNrZlrPdcQBbXCjns+QXudVbadzZq9tLrfQJmVowJirwCM1pONyeBg==",
+      "type": "package",
+      "path": "x.pagedlist/10.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net6.0/X.PagedList.dll",
+        "lib/net8.0/X.PagedList.dll",
+        "lib/netstandard2.0/X.PagedList.dll",
+        "lib/netstandard2.1/X.PagedList.dll",
+        "x.pagedlist.10.0.3.nupkg.sha512",
+        "x.pagedlist.nuspec"
+      ]
+    },
+    "X.PagedList.Mvc.Core/10.0.3": {
+      "sha512": "awvBpTZDO4owGOhcejD0NzSGftsogBq5yRBMhQn8LNjoUaCcubYifOQQLSYVZlrPeiiJjJxU5BcMRDALmaA6UQ==",
+      "type": "package",
+      "path": "x.pagedlist.mvc.core/10.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net6.0/X.PagedList.Mvc.Core.dll",
+        "lib/net8.0/X.PagedList.Mvc.Core.dll",
+        "x.pagedlist.mvc.core.10.0.3.nupkg.sha512",
+        "x.pagedlist.mvc.core.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.EntityFrameworkCore >= 8.0.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.7",
-      "Microsoft.EntityFrameworkCore.Tools >= 8.0.7"
+      "Microsoft.EntityFrameworkCore.Tools >= 8.0.7",
+      "X.PagedList >= 10.0.3",
+      "X.PagedList.Mvc.Core >= 10.0.3"
     ]
   },
   "packageFolders": {
@@ -4111,11 +4169,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ASP\\.NET EPJ\\New folder\\EProject.NETCore\\EProjet.NETCore\\EProjet.NETCore.csproj",
+      "projectUniqueName": "E:\\ASP\\.NET EPJ\\SourceCode\\EProjet.NETCore\\EProjet.NETCore.csproj",
       "projectName": "EProjet.NETCore",
-      "projectPath": "E:\\ASP\\.NET EPJ\\New folder\\EProject.NETCore\\EProjet.NETCore\\EProjet.NETCore.csproj",
+      "projectPath": "E:\\ASP\\.NET EPJ\\SourceCode\\EProjet.NETCore\\EProjet.NETCore.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "E:\\ASP\\.NET EPJ\\New folder\\EProject.NETCore\\EProjet.NETCore\\obj\\",
+      "outputPath": "E:\\ASP\\.NET EPJ\\SourceCode\\EProjet.NETCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4157,6 +4215,14 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[8.0.7, )"
+          },
+          "X.PagedList": {
+            "target": "Package",
+            "version": "[10.0.3, )"
+          },
+          "X.PagedList.Mvc.Core": {
+            "target": "Package",
+            "version": "[10.0.3, )"
           }
         },
         "imports": [

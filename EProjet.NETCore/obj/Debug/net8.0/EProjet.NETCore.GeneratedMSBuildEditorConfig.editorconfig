@@ -9,43 +9,55 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EProjet.NETCore
 build_property.RootNamespace = EProjet.NETCore
-build_property.ProjectDir = E:\ASP\.NET EPJ\New folder\EProject.NETCore\EProjet.NETCore\
+build_property.ProjectDir = E:\ASP\.NET EPJ\SourceCode\EProjet.NETCore\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\ASP\.NET EPJ\New folder\EProject.NETCore\EProjet.NETCore
+build_property.MSBuildProjectDirectory = E:\ASP\.NET EPJ\SourceCode\EProjet.NETCore
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/ASP/.NET EPJ/New folder/EProject.NETCore/EProjet.NETCore/Views/Home/homepage.cshtml]
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/Competition/competition.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGV0aXRpb25cY29tcGV0aXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/Home/homepage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxob21lcGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/ASP/.NET EPJ/New folder/EProject.NETCore/EProjet.NETCore/Views/Recipe/recipe.cshtml]
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/Recipe/recipe.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXHJlY2lwZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/ASP/.NET EPJ/New folder/EProject.NETCore/EProjet.NETCore/Views/Recipe/upload_recipe.cshtml]
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/Recipe/recipe_detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXHJlY2lwZV9kZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/Recipe/upload_recipe.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXHVwbG9hZF9yZWNpcGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/ASP/.NET EPJ/New folder/EProject.NETCore/EProjet.NETCore/Views/Shared/Error.cshtml]
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/ASP/.NET EPJ/New folder/EProject.NETCore/EProjet.NETCore/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/ASP/.NET EPJ/New folder/EProject.NETCore/EProjet.NETCore/Views/_ViewImports.cshtml]
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/Tip/tip.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwXHRpcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/ASP/.NET EPJ/New folder/EProject.NETCore/EProjet.NETCore/Views/_ViewStart.cshtml]
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/ASP/.NET EPJ/New folder/EProject.NETCore/EProjet.NETCore/Views/Shared/_Layout.cshtml]
+[E:/ASP/.NET EPJ/SourceCode/EProjet.NETCore/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6djk2bpsaa

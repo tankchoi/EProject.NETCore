@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ASP\\.NET EPJ\\New folder\\EProject.NETCore\\EProjet.NETCore\\EProjet.NETCore.csproj": {}
+    "E:\\ASP\\.NET EPJ\\SourceCode\\EProjet.NETCore\\EProjet.NETCore.csproj": {}
   },
   "projects": {
-    "E:\\ASP\\.NET EPJ\\New folder\\EProject.NETCore\\EProjet.NETCore\\EProjet.NETCore.csproj": {
+    "E:\\ASP\\.NET EPJ\\SourceCode\\EProjet.NETCore\\EProjet.NETCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ASP\\.NET EPJ\\New folder\\EProject.NETCore\\EProjet.NETCore\\EProjet.NETCore.csproj",
+        "projectUniqueName": "E:\\ASP\\.NET EPJ\\SourceCode\\EProjet.NETCore\\EProjet.NETCore.csproj",
         "projectName": "EProjet.NETCore",
-        "projectPath": "E:\\ASP\\.NET EPJ\\New folder\\EProject.NETCore\\EProjet.NETCore\\EProjet.NETCore.csproj",
+        "projectPath": "E:\\ASP\\.NET EPJ\\SourceCode\\EProjet.NETCore\\EProjet.NETCore.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "E:\\ASP\\.NET EPJ\\New folder\\EProject.NETCore\\EProjet.NETCore\\obj\\",
+        "outputPath": "E:\\ASP\\.NET EPJ\\SourceCode\\EProjet.NETCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,6 +53,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.7, )"
+            },
+            "X.PagedList": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[10.0.3, )"
             }
           },
           "imports": [
