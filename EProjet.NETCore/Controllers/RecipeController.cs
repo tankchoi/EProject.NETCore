@@ -282,6 +282,34 @@ namespace EProjet.NETCore.Controllers
                 return View("recipe_detail",recipe);
             }
         }
+        [HttpGet]
+        public async Task<IActionResult> AccessDenied()
+        {
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> UpdateRecipe(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            using (var db = new EProjectNetcoreContext())
+            {
+                var recipe = await db.Recipes.FirstOrDefaultAsync(m => m.Id == id);
+                if (recipe == null)
+                {
+                    return NotFound();
+                }
+                //if(recipe.UserId != 1)
+                //{
+                //    return RedirectToAction("AccessDenied");
+                //}
+
+                return View("update_recipe", recipe);
+            }
+        }
     }
 }
 
